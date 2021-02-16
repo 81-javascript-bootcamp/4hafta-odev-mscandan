@@ -20,10 +20,10 @@ coklu secim yapmaya da izin veriyor. Action ve drama secili ise hem action hem d
 
 
 ### ToDo:
-  [x] Tum yearlarin ayri ayri filtrelemede kullanilmasi
-  [x] Tum genrelarin ayri ayri filtrelemede kullanilmasi
-  [x] Yearlarin yanina o year'a ait film sayisinin yazilmasi
-  [x] Genrelarin yanina o genre'ya ait film sayisinin yazilmasi
-  [x] Genre'ya gore cok secimli filtreleme
-  [x] Search sonrasi input bosaltimi
+  - [x] Tum yearlarin ayri ayri filtrelemede kullanilmasi
+  - [x] Tum genrelarin ayri ayri filtrelemede kullanilmasi
+  - [x] Yearlarin yanina o year'a ait film sayisinin yazilmasi
+  - [x] Genrelarin yanina o genre'ya ait film sayisinin yazilmasi
+  - [x] Genre'ya gore cok secimli filtreleme
+  - [x] Search sonrasi input bosaltimi
 
