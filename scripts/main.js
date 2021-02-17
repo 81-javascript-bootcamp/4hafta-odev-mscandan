@@ -35,6 +35,8 @@ class MoviesApp {
   }
 
   // Genre Section Started
+
+  // gets different genres from data
   getDifferentMovieGenres() {
     data.forEach((film) => {
       if (!this.differentGenres.includes(film.genre)) {
@@ -44,6 +46,7 @@ class MoviesApp {
     this.getGenreCounts();
   }
 
+  // counts how many films in a genre
   getGenreCounts() {
     this.differentGenres.forEach((genre) => {
       let count = 0;
@@ -56,6 +59,7 @@ class MoviesApp {
     });
   }
 
+  // creates single genre element for filtering
   createGenreFilterElement(genre, index) {
     return `
             <div class="form-check">
@@ -72,6 +76,7 @@ class MoviesApp {
             </div>`;
   }
 
+  // fills genre filter with all different genres from data
   fillGenreFilter() {
     this.differentGenres.forEach((genre, index) => {
       this.$genreFilterContainer.innerHTML += this.createGenreFilterElement(
@@ -87,9 +92,23 @@ class MoviesApp {
     );
     this.$genreFilterContainer.append($genreFilterBtn);
   }
+
+  // resets genre filter on using another filter
+  resetGenreFilter() {
+    const $checkedEls = this.$genreFilterContainer.querySelectorAll(
+      `input[name='${this.genreHandler}']:checked`
+    );
+    if ($checkedEls) {
+      $checkedEls.forEach((el) => {
+        el.checked = false;
+      });
+    }
+  }
   // Genre Section Ended
 
   // Year Section Started
+
+  // gets different years from data
   getDifferentMovieYears() {
     data.forEach((movie) => {
       if (!this.differentYears.includes(movie.year)) {
@@ -100,6 +119,7 @@ class MoviesApp {
     this.getYearCounts();
   }
 
+  // counts how many films in a year
   getYearCounts() {
     this.differentYears.forEach((year) => {
       let count = 0;
@@ -112,6 +132,7 @@ class MoviesApp {
     });
   }
 
+  // creates single year element for filtering
   createYearFilterElement(year, index) {
     return `<div class='form-check'>
               <input
@@ -125,6 +146,7 @@ class MoviesApp {
             </div>`;
   }
 
+  // fills year filter with all different years from data
   fillYearFilter() {
     this.differentYears.forEach((year, index) => {
       this.$yearFilterContainer.innerHTML += this.createYearFilterElement(
@@ -139,6 +161,16 @@ class MoviesApp {
       'Filter'
     );
     this.$yearFilterContainer.append($yearFilterBtn);
+  }
+
+  // resets year filter on using another filter
+  resetYearFilter() {
+    const $checkedEl = this.$yearFilterContainer.querySelector(
+      `input[name='${this.yearHandler}']:checked`
+    );
+    if ($checkedEl) {
+      $checkedEl.checked = false;
+    }
   }
   // Year Section Ended
 
@@ -169,6 +201,8 @@ class MoviesApp {
     this.$searchForm.addEventListener('submit', (event) => {
       event.preventDefault();
       this.reset();
+      this.resetYearFilter();
+      this.resetGenreFilter();
       const searchValue = this.$searchInput.value;
       if (searchValue) {
         data
@@ -185,6 +219,7 @@ class MoviesApp {
     this.$yearSubmitter = document.getElementById(this.yearSubmitterId);
     this.$yearSubmitter.addEventListener('click', () => {
       this.reset();
+      this.resetGenreFilter();
       const selectedYear = document.querySelector(
         `input[name='${this.yearHandler}']:checked`
       ).value;
@@ -200,6 +235,7 @@ class MoviesApp {
     this.$genreSubmitter = document.getElementById(this.genreSubmitterId);
     this.$genreSubmitter.addEventListener('click', () => {
       this.reset();
+      this.resetYearFilter();
       const $checkedGenres = document.querySelectorAll(
         `input[name='${this.genreHandler}']:checked`
       );

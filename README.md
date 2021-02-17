@@ -26,4 +26,5 @@ coklu secim yapmaya da izin veriyor. Action ve drama secili ise hem action hem d
   - [x] Genrelarin yanina o genre'ya ait film sayisinin yazilmasi
   - [x] Genre'ya gore cok secimli filtreleme
   - [x] Search sonrasi input bosaltimi
+  - [x] Farkli filtrelemeler sonucu diger filtrelerin bosaltilmasi
 
